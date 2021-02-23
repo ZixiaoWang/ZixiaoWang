@@ -9,8 +9,8 @@
             <h3>Hi, Jacky's here 🖖</h3>
             <br />
             JavaScripter です! <br/>
-            I use `React` and `Angular` for browser side, `NodeJS` for server side.   <br />
-            Been playing with `JavaScript` and `Typescript` for a few years <br />
+            I use <code>React</code> and <code>Angular</code> for browser side, <code>NodeJS</code> for server side.   <br />
+            Been playing with <code>JavaScript</code> and <code>Typescript</code> for a few years <br />
             Now working in <a href="https://block.one/" target="_black">Block.One</a> as software engineer.  <br />
         </td>
     </tr>
