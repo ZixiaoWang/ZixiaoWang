@@ -1,11 +1,11 @@
 👈  &nbsp; not me, please check my repos 👆
-# 👇 This is ME!
+## 👇 This is ME!
 <table>
-    <tr>
-        <td>
+    <tr style="border-top: 0px;">
+        <td style="border: 0px;">
             <img width="300" src="./imgs/programmer.gif" />
         </td>
-        <td style="vertical-align: text-top;">
+        <td style="vertical-align: text-top; border: 0px;">
             <h3>Hi, Jacky's here 🖖</h3>
             <br />
             JavaScripter です! <br/>
