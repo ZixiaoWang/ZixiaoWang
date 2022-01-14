@@ -64,7 +64,7 @@ const AnimatedLine = (props: AnimatedLineProps) => {
             setTimeout(() => {
                 setContent(content + props.text.substring(cursorIndex, cursorIndex + 1));
                 setCursorIndex(cursorIndex + 1);
-            }, Number.isNaN(props.timeout) ? 80 : props.timeout);
+            }, Number.isNaN(props.timeout) ? 10 : props.timeout);
         }
 
         if (props.trigger && cursorIndex > props.text.length) {
