@@ -3,7 +3,8 @@ html, body {
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Raleway', sans-serif;
     color: #e6e6e6;
     -webkit-scrollbar: none;
 
@@ -19,6 +20,8 @@ html, body {
 $primary-font-size: 2.4rem;
 $secondary-font-size: 2rem;
 $third-font-size: 1.4rem;
+$photo-size: 100px;
+$photo-gap: 8px;
 
 .zx {
     &-body {
@@ -41,9 +44,8 @@ $third-font-size: 1.4rem;
 
         &-intro {
             width: 100%;
-            padding: 24px 8px;
-            margin-bottom: 24px;
-            font-size: 2rem;
+            padding: 24px 4px;
+            font-size: 1.6rem;
             box-sizing: border-box;
             justify-self: flex-start;
         }
@@ -65,18 +67,20 @@ $third-font-size: 1.4rem;
             width: 100%;
             background-color: #dedede;
             box-shadow: 2px 0px 2px black;
-            padding: 4px 8px;
+            padding: 8px 16px;
             display: flex;
             align-items: flex-start;
         }
 
         &-body {
             padding: 12px 8px 36px 8px;
-            height: 100%;
-            max-height: 620px;
+            height: 443px;
             overflow: auto;
             white-space: pre-line;
             font-size: .9rem;
+
+            & > .white { color: white; }
+            & > .green { color: rgb(54, 159, 54); }
         }
 
         &-btn {
@@ -108,7 +112,7 @@ $third-font-size: 1.4rem;
         &-item {
             box-shadow: 4px 4px 8px rgba(0,0,0, 0.65);
             & + .zx-carousel-item {
-                margin-left: 24px;
+                margin-left: 48px;
             }
         }
     }
@@ -120,7 +124,8 @@ $third-font-size: 1.4rem;
         align-items: flex-start;
         justify-content: center;
         flex-flow: column;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        text-shadow: 2px 4px 8px rgba(0,0,0, 0.95);
     }
 
     &-program {
@@ -132,7 +137,6 @@ $third-font-size: 1.4rem;
     }
 
     &-photograph {
-        font-family: Arial, Helvetica, sans-serif;
         display: flex;
         flex-flow: column;
         align-items: center;
@@ -141,18 +145,20 @@ $third-font-size: 1.4rem;
         .zx-photos {
             display: grid;
             grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
-            column-gap: 4px;
-            row-gap: 4px;
+            grid-template-rows: repeat(4, 100px);
+            column-gap: $photo-gap;
+            row-gap: $photo-gap;
         }
 
         .zx-photo {
-            width: 100px;
+            width: $photo-size;
             height: 0px;
-            padding-top: 100px;
+            padding-top: $photo-size;
             position: relative;
-            border-radius: 8px;
-            box-shadow: 2px 2px 8px rgba(0,0,0, 0.65);
+            border-radius: 4px;
+            box-shadow: 0px 0px 0px rgba(0,0,0, 0.75);
+            opacity: 0.1;
+            transition: box-shadow .3s ease-in-out, opacity .3s ease-in-out;
             overflow: hidden;
 
             & > img {
@@ -160,11 +166,16 @@ $third-font-size: 1.4rem;
                 width: 100%;
                 top: 0; left: 0;
             }
+
+            &.is-shown {
+                opacity: 1;
+                box-shadow: 2px 4px 8px rgba(0,0,0, 0.75);
+            }
         }
     }
 
     &-contact {
-        padding: 48px 0px 24px 0px;
+        padding: 48px 0px;
         text-align: center;
     }
 }
@@ -176,18 +187,26 @@ $third-font-size: 1.4rem;
         left: 0px;
         width: 100%;
         font-size: 2rem;
-        padding: 12px 24px 48px 24px;
+        padding: 12px 24px 12px 24px;
         box-sizing: border-box;
-        background-image: linear-gradient(180deg, rgba(0,0,0, 0.65), transparent 85%);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background-image: linear-gradient(180deg, rgba(0,0,0, 0.95), transparent 90%);
+    }
+
+    &-footer-shadow {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 53px;
+        box-sizing: border-box;
+        background-image: linear-gradient(180deg, transparent, rgba(0,0,0, 0.95) 90%);
     }
 }
 
 .zx {
     &-dynamic-background {
         transition: background-position .3s ease-in-out;
-        background-size: 100vw 200vh;
+        background-size: 100vw 600vh;
         background-repeat: no-repeat;
         background-image: linear-gradient(145deg, #333333, #111111);
 
