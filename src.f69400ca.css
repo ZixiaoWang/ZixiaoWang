@@ -175,9 +175,9 @@ html strike, body strike {
   padding-top: 100px;
   position: relative;
   border-radius: 4px;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.75);
   opacity: 0.1;
-  transition: box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   overflow: hidden;
   background-position: center;
   background-size: cover;
@@ -185,7 +185,6 @@ html strike, body strike {
 }
 .zx-photograph .zx-photo.is-shown {
   opacity: 1;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.75);
 }
 .zx-grid {
   display: grid;
@@ -196,9 +195,8 @@ html strike, body strike {
 .zx-grid-item {
   position: relative;
   overflow: hidden;
-  margin-top: 50px;
   opacity: 0.1;
-  transition: margin-top 0.3s ease-out, opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
   border-radius: 8px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.75);
   background-position: center;
@@ -206,7 +204,6 @@ html strike, body strike {
   background-repeat: no-repeat;
 }
 .zx-grid-item.is-shown {
-  margin-top: 0px;
   opacity: 1;
 }
 .zx-grid-item > img {
@@ -241,11 +238,16 @@ html strike, body strike {
   background-image: linear-gradient(to right, #333333 5%, black, #333333 95%);
   box-shadow: inset -20px -5px 14px black, inset 20px -5px 14px black;
 }
-.zx-carousel-item {
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.95);
+.zx-carousel-container {
+  display: flex;
 }
-.zx-carousel-item > img {
-  border-radius: 8px;
+.zx-carousel-item {
+  width: 250px;
+  height: 444px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.95);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .zx-carousel-item + .zx-carousel-item {
   margin-left: 48px;

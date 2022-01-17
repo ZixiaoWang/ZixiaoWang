@@ -251,9 +251,9 @@ $bg-6: #450914;
             padding-top: $photo-size;
             position: relative;
             border-radius: 4px;
-            box-shadow: 0px 0px 0px rgba(0,0,0, 0.75);
+            box-shadow: 2px 4px 8px rgba(0,0,0, 0.75);
             opacity: 0.1;
-            transition: box-shadow .3s ease-in-out, opacity .3s ease-in-out;
+            transition: opacity .3s ease-in-out;
             overflow: hidden;
 
             background-position: center;
@@ -262,7 +262,6 @@ $bg-6: #450914;
 
             &.is-shown {
                 opacity: 1;
-                box-shadow: 2px 4px 8px rgba(0,0,0, 0.75);
             }
         }
     }
@@ -271,9 +270,8 @@ $bg-6: #450914;
         &-item {
             position: relative;
             overflow: hidden;
-            margin-top: 50px;
             opacity: 0.1;
-            transition: margin-top .3s ease-out, opacity .3s ease-out;
+            transition: opacity .3s ease-out;
             border-radius: 8px;
 
             box-shadow: 2px 4px 8px rgba(0,0,0, 0.75);
@@ -282,7 +280,6 @@ $bg-6: #450914;
             background-repeat: no-repeat;
 
             &.is-shown {
-                margin-top: 0px;
                 opacity: 1;
             }
 
@@ -327,12 +324,18 @@ $bg-6: #450914;
         background-image: linear-gradient(to right, #333333 5%, black, #333333 95%);
         box-shadow: inset -20px -5px 14px black, inset 20px -5px 14px black;;
         
-        &-item {
-            box-shadow: 4px 4px 12px rgba(0,0,0, 0.95);
+        &-container {
+            display: flex;
+        }
 
-            & > img {
-                border-radius: 8px;
-            }
+        &-item {
+            width: 250px;
+            height: 444px;
+            box-shadow: 4px 4px 12px rgba(0,0,0, 0.95);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
             & + .zx-carousel-item {
                 margin-left: 48px;
             }
