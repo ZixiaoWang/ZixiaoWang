@@ -6,14 +6,14 @@ interface GridItem {
 }
 
 const images: GridItem[] = [
-    { src: "http://placekitten.com/412/212" },
-    { src: "http://placekitten.com/201/200" },
-    { src: "http://placekitten.com/201/200" },
-    { src: "http://placekitten.com/201/200" },
-    { src: "http://placekitten.com/412/400" },
-    { src: "http://placekitten.com/201/200" },
-    { src: "http://placekitten.com/201/200" },
-    { src: "http://placekitten.com/201/200" }
+    { src: "assets/cats/cat_min_1.jpg" },
+    { src: "assets/cats/cat_min_2.jpg" },
+    { src: "assets/cats/cat_min_3.jpg" },
+    { src: "assets/cats/cat_min_4.jpg" },
+    { src: "assets/cats/cat_min_5.jpg" },
+    { src: "assets/cats/cat_min_6.jpg" },
+    { src: "assets/cats/cat_min_7.jpg" },
+    { src: "assets/cats/cat_min_8.jpg" }
 ]
 
 export const Cats = () => {
@@ -64,10 +64,10 @@ export const Cats = () => {
                         const classList: string[] = ["zx-grid-item"];
                         classList.push("is-" + (index + 1));
                         return (
-                            <div ref={currentEle => refList[index] = currentEle}
+                            <div style={{ backgroundImage: `url(${image.src})`}}
+                                ref={currentEle => refList[index] = currentEle}
                                 className={classList.join(" ")} 
                                 key={index}>
-                                <img src={image.src} alt="" />
                             </div>
                         )
                     })

@@ -2,18 +2,18 @@ import { h, createRef, Ref, RefObject } from "preact";
 import { useState, useEffect } from "preact/hooks";
 
 const images = [
-    "http://placekitten.com/120/120",
-    "http://placekitten.com/120/120",
-    "http://placekitten.com/120/120",
-    "http://placekitten.com/120/120",
-    "http://placekitten.com/120/120",
-    "http://placekitten.com/120/120",
-    "http://placekitten.com/120/120",
-    "http://placekitten.com/120/120",
-    "http://placekitten.com/120/120",
-    "http://placekitten.com/120/120",
-    "http://placekitten.com/120/120",
-    "http://placekitten.com/120/120",
+    "assets/photography/img_min_1.JPG",
+    "assets/photography/img_min_2.JPG",
+    "assets/photography/img_min_3.JPG",
+    "assets/photography/img_min_4.JPG",
+    "assets/photography/img_min_5.JPG",
+    "assets/photography/img_min_6.JPG",
+    "assets/photography/img_min_7.JPG",
+    "assets/photography/img_min_8.JPG",
+    "assets/photography/img_min_9.JPG",
+    "assets/photography/img_min_10.JPG",
+    "assets/photography/img_min_11.JPG",
+    "assets/photography/img_min_12.JPG",
 ]
 
 export const Photograph = () => {
@@ -63,9 +63,9 @@ export const Photograph = () => {
                     images.map((image: string, index: number) => {
                         return (
                             <div ref={currentEle => refList[index] = currentEle}
+                                style={{ backgroundImage: `url(${image})`}}
                                 className="zx-photo" 
                                 key={index}>
-                                <img src={image} alt="CAT" />
                             </div>
                         )
                     })
