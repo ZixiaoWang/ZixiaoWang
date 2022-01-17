@@ -752,21 +752,21 @@ var jsx_runtime_1 = require("preact/jsx-runtime");
 var hooks_1 = require("preact/hooks");
 
 var images = [{
-  src: "http://placekitten.com/412/212"
+  src: "assets/cats/cat_min_1.jpg"
 }, {
-  src: "http://placekitten.com/201/200"
+  src: "assets/cats/cat_min_2.jpg"
 }, {
-  src: "http://placekitten.com/201/200"
+  src: "assets/cats/cat_min_3.jpg"
 }, {
-  src: "http://placekitten.com/201/200"
+  src: "assets/cats/cat_min_4.jpg"
 }, {
-  src: "http://placekitten.com/412/400"
+  src: "assets/cats/cat_min_5.jpg"
 }, {
-  src: "http://placekitten.com/201/200"
+  src: "assets/cats/cat_min_6.jpg"
 }, {
-  src: "http://placekitten.com/201/200"
+  src: "assets/cats/cat_min_7.jpg"
 }, {
-  src: "http://placekitten.com/201/200"
+  src: "assets/cats/cat_min_8.jpg"
 }];
 
 var Cats = function Cats() {
@@ -831,17 +831,15 @@ var Cats = function Cats() {
       children: images.map(function (image, index) {
         var classList = ["zx-grid-item"];
         classList.push("is-" + (index + 1));
-        return (0, jsx_runtime_1.jsx)("div", Object.assign({
+        return (0, jsx_runtime_1.jsx)("div", {
+          style: {
+            backgroundImage: "url(".concat(image.src, ")")
+          },
           ref: function ref(currentEle) {
             return refList[index] = currentEle;
           },
           className: classList.join(" ")
-        }, {
-          children: (0, jsx_runtime_1.jsx)("img", {
-            src: image.src,
-            alt: ""
-          }, void 0)
-        }), index);
+        }, index);
       })
     }), void 0)]
   }), void 0);
@@ -1021,7 +1019,7 @@ var jsx_runtime_1 = require("preact/jsx-runtime");
 
 var hooks_1 = require("preact/hooks");
 
-var images = ["http://placekitten.com/120/120", "http://placekitten.com/120/120", "http://placekitten.com/120/120", "http://placekitten.com/120/120", "http://placekitten.com/120/120", "http://placekitten.com/120/120", "http://placekitten.com/120/120", "http://placekitten.com/120/120", "http://placekitten.com/120/120", "http://placekitten.com/120/120", "http://placekitten.com/120/120", "http://placekitten.com/120/120"];
+var images = ["assets/photography/img_min_1.JPG", "assets/photography/img_min_2.JPG", "assets/photography/img_min_3.JPG", "assets/photography/img_min_4.JPG", "assets/photography/img_min_5.JPG", "assets/photography/img_min_6.JPG", "assets/photography/img_min_7.JPG", "assets/photography/img_min_8.JPG", "assets/photography/img_min_9.JPG", "assets/photography/img_min_10.JPG", "assets/photography/img_min_11.JPG", "assets/photography/img_min_12.JPG"];
 
 var Photograph = function Photograph() {
   var _ref = (0, hooks_1.useState)(false),
@@ -1084,17 +1082,15 @@ var Photograph = function Photograph() {
       }
     }, {
       children: images.map(function (image, index) {
-        return (0, jsx_runtime_1.jsx)("div", Object.assign({
+        return (0, jsx_runtime_1.jsx)("div", {
           ref: function ref(currentEle) {
             return refList[index] = currentEle;
           },
+          style: {
+            backgroundImage: "url(".concat(image, ")")
+          },
           className: "zx-photo"
-        }, {
-          children: (0, jsx_runtime_1.jsx)("img", {
-            src: image,
-            alt: "CAT"
-          }, void 0)
-        }), index);
+        }, index);
       })
     }), void 0)]
   }), void 0);

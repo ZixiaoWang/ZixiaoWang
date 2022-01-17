@@ -77,7 +77,7 @@ html strike, body strike {
 }
 .zx-terminal-body {
   padding: 12px 8px 36px 8px;
-  height: 443px;
+  height: 493px;
   overflow: auto;
   white-space: pre-line;
   font-size: 0.9rem;
@@ -179,12 +179,9 @@ html strike, body strike {
   opacity: 0.1;
   transition: box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
   overflow: hidden;
-}
-.zx-photograph .zx-photo > img {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .zx-photograph .zx-photo.is-shown {
   opacity: 1;
@@ -204,6 +201,9 @@ html strike, body strike {
   transition: margin-top 0.3s ease-out, opacity 0.3s ease-out;
   border-radius: 8px;
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.75);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .zx-grid-item.is-shown {
   margin-top: 0px;
