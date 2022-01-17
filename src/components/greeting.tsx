@@ -2,7 +2,7 @@ import { h } from "preact";
 
 export const Greeting = () => {
     return (
-        <section className="zx-section zx-greeting" id="zx_greeting">
+        <section className="zx-section zx-greeting is-full-height" id="zx_greeting">
             <div>
                 <div>
                     Hi, <br />

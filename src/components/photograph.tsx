@@ -24,8 +24,10 @@ export const Photograph = () => {
         if (ref) {
             document.body.addEventListener("scroll", () => {
                 const pos: DOMRect = ref.getBoundingClientRect();
-                if (pos.top < (window.innerHeight * 0.5)) {
+                if (pos.top < (window.innerHeight * 0.5) && pos.top > (window.innerHeight * -0.5)) {
                     setTrigger(true);
+                } else {
+                    setTrigger(false)
                 }
             })
         }
@@ -37,7 +39,15 @@ export const Photograph = () => {
                 if (refItem) {
                     setTimeout(() => {
                         refItem?.classList?.add("is-shown")
-                    }, index * 200)
+                    }, index * 100)
+                }
+            })
+        } else {
+            refList.forEach((refItem: any, index: number) => {
+                if (refItem) {
+                    setTimeout(() => {
+                        refItem?.classList?.remove("is-shown")
+                    }, index * 20)
                 }
             })
         }
