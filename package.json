@@ -2,10 +2,13 @@
   "name": "zixiao",
   "version": "1.0.0",
   "description": "Zixiao.website source code",
-  "main": "index.html",
   "repository": "git@github.com:ZixiaoWang/ZixiaoWang.git",
   "author": "Jacky Wang <zwang@flexport.com>",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "license": "MIT",
+  "engines": {
+    "node": "> 12"
+  },
   "dependencies": {
     "assemble": "~0.3.11",
     "grunt": "~0.4.0",
