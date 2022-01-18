@@ -943,7 +943,8 @@ var Contact = function Contact() {
       children: [(0, jsx_runtime_1.jsx)("a", Object.assign({
         className: "zx-contact-item",
         href: "https://github.com/ZixiaoWang",
-        target: "_blank"
+        target: "_blank",
+        rel: "noopener"
       }, {
         children: (0, jsx_runtime_1.jsx)("img", {
           src: "assets/github.png",
@@ -952,7 +953,8 @@ var Contact = function Contact() {
       }), void 0), (0, jsx_runtime_1.jsx)("a", Object.assign({
         className: "zx-contact-item",
         href: "https://www.linkedin.com/in/jacky-wang-57a59b59/",
-        target: "_blank"
+        target: "_blank",
+        rel: "noopener"
       }, {
         children: (0, jsx_runtime_1.jsx)("img", {
           src: "assets/linkedin.png",
@@ -961,7 +963,8 @@ var Contact = function Contact() {
       }), void 0), (0, jsx_runtime_1.jsx)("a", Object.assign({
         className: "zx-contact-item",
         href: "https://instagram.com/xiaoxiaoonline",
-        target: "_blank"
+        target: "_blank",
+        rel: "noopener"
       }, {
         children: (0, jsx_runtime_1.jsx)("img", {
           src: "assets/instagram.png",
@@ -1798,7 +1801,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64230" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55186" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -14,13 +14,13 @@ export const Contact = () => {
     return (
         <Fragment>
             <section className="zx-contact">
-                <a className="zx-contact-item" href="https://github.com/ZixiaoWang" target="_blank">
+                <a className="zx-contact-item" href="https://github.com/ZixiaoWang" target="_blank" rel="noopener">
                     <img src="assets/github.png" alt="Github" />
                 </a>
-                <a className="zx-contact-item" href="https://www.linkedin.com/in/jacky-wang-57a59b59/" target="_blank">
+                <a className="zx-contact-item" href="https://www.linkedin.com/in/jacky-wang-57a59b59/" target="_blank" rel="noopener">
                     <img src="assets/linkedin.png" alt="Github" />
                 </a>
-                <a className="zx-contact-item" href="https://instagram.com/xiaoxiaoonline" target="_blank">
+                <a className="zx-contact-item" href="https://instagram.com/xiaoxiaoonline" target="_blank" rel="noopener">
                     <img src="assets/instagram.png" alt="Github" />
                 </a>
             </section>
