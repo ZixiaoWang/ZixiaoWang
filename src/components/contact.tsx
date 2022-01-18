@@ -20,7 +20,7 @@ export const Contact = () => {
                 <a className="zx-contact-item" href="https://www.linkedin.com/in/jacky-wang-57a59b59/" target="_blank">
                     <img src="assets/linkedin.png" alt="Github" />
                 </a>
-                <a className="zx-contact-item" href="https://instagram/xiaoxiaoonline" target="_blank">
+                <a className="zx-contact-item" href="https://instagram.com/xiaoxiaoonline" target="_blank">
                     <img src="assets/instagram.png" alt="Github" />
                 </a>
             </section>

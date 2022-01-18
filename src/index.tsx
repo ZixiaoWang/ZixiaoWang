@@ -1,5 +1,5 @@
 import { Fragment, h, render } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useState } from "preact/hooks";
 import {
     Greeting,
     Coding,
@@ -8,6 +8,8 @@ import {
     Drawing,
     Contact
 } from "./components";
+import { useImagreModal } from "./hooks";
+import { ImageModalContext, ImageModalContextInterface } from "./context";
 
 import "./styles/main.scss";
 
@@ -15,7 +17,8 @@ const LOADING_TIME: number = 500;
 
 export const ZiXiaoPage = () => {
     const [loading, setLoading] = useState(true);
-    const [bgIndex, setBgIndex] = useState(Math.ceil(Math.random() * 5));
+    const [bgIndex, _] = useState(Math.ceil(Math.random() * 5));
+    const imageModal: ImageModalContextInterface = useImagreModal();
 
     const initLoading = (ref: HTMLElement | null) => {
         if (ref) {
@@ -33,34 +36,42 @@ export const ZiXiaoPage = () => {
     classList.push("index-" + bgIndex);
 
     return (
-        <div class={classList.join(" ")} key={bgIndex}>
-            <div class="zx-body" id="zx_body">
-                <div class="zx-container" id="zx_container">
-                    <Greeting />
-                    <Coding />
-                    <Photograph />
-                    <Cats />
-                    <Drawing />
-                    <Contact />
-                    <Fragment>
-                        <div class="zx-logo">
-                            <div className="zx-container">
-                                zixiao.website
+        <ImageModalContext.Provider value={imageModal}>
+            <div class={classList.join(" ")} key={bgIndex}>
+                <div class="zx-body" id="zx_body">
+                    <div class="zx-container" id="zx_container">
+                        <Greeting />
+                        <Coding />
+                        <Photograph />
+                        <Cats />
+                        <Drawing />
+                        <Contact />
+                        <Fragment>
+                            <div class="zx-logo">
+                                <div className="zx-container">
+                                    zixiao.website
+                                </div>
                             </div>
-                        </div>
-                        <div class="zx-footer-shadow"></div>
-                    </Fragment>
-                </div>
-            </div>
-            {
-                loading &&
-                <div className="zx-loading" ref={currentRef => initLoading(currentRef)}>
-                    <div className="zx-loading-spinner">
-                        &nbsp;
+                            <div class="zx-footer-shadow"></div>
+                        </Fragment>
                     </div>
                 </div>
-            }
-        </div>
+                {
+                    imageModal.visibility &&
+                    <div className="zx-modal-container" onClick={() => imageModal.close()}>
+                        <img src={imageModal.src as string} alt="cat" className="zx-modal" />
+                    </div>
+                }
+                {
+                    loading &&
+                    <div className="zx-loading" ref={currentRef => initLoading(currentRef)}>
+                        <div className="zx-loading-spinner">
+                            &nbsp;
+                        </div>
+                    </div>
+                }
+            </div>
+        </ImageModalContext.Provider>
     )
 }
 

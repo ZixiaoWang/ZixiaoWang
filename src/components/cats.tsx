@@ -1,5 +1,6 @@
 import { h, createRef, Ref, RefObject } from "preact";
-import { useState, useEffect } from "preact/hooks";
+import { useState, useEffect, useContext } from "preact/hooks";
+import { ImageModalContext } from "../context";
 
 interface GridItem {
     src: string
@@ -19,6 +20,7 @@ const images: GridItem[] = [
 export const Cats = () => {
     const [trigger, setTrigger] = useState(false);
     const refList = new Array(images.length).fill(null);
+    const { show } = useContext(ImageModalContext);
 
     const triggerAnimate = (ref: HTMLElement | null) => {
         if (ref) {
@@ -67,6 +69,7 @@ export const Cats = () => {
                             <div style={{ backgroundImage: `url(${image.src})`}}
                                 ref={currentEle => refList[index] = currentEle}
                                 className={classList.join(" ")} 
+                                onClick={() => show(image.src)}
                                 key={index}>
                             </div>
                         )

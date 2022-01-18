@@ -272,6 +272,22 @@ html strike, body strike {
   padding: 48px 0px;
   text-align: center;
 }
+.zx-modal {
+  width: 90%;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.95);
+}
+.zx-modal-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .zx-logo {
   position: fixed;

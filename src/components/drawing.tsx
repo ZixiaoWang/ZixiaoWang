@@ -1,4 +1,6 @@
 import { h } from "preact";
+import { useContext } from "preact/hooks";
+import { ImageModalContext, ImageModalContextInterface } from "../context";
 
 const images: string[] = [
     "assets/sketches/sketch_min_1.jpg",
@@ -10,6 +12,7 @@ const images: string[] = [
 ]
 
 export const Drawing = () => {
+    const { show } = useContext<ImageModalContextInterface>(ImageModalContext);
 
     return (
         <section className="zx-section zx-drawing" id="zx_drawing">
@@ -26,6 +29,7 @@ export const Drawing = () => {
                             return (
                                 <div key={index}
                                     style={{ backgroundImage: `url(${image})` }}
+                                    onClick={() => show(image)}
                                     className="zx-carousel-item">
                                 </div>
                             )

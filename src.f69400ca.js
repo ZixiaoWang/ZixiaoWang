@@ -727,7 +727,50 @@ function k(n, t) {
 function w(n, t) {
   return "function" == typeof t ? t(n) : t;
 }
-},{"preact":"../node_modules/preact/dist/preact.module.js"}],"components/cats.tsx":[function(require,module,exports) {
+},{"preact":"../node_modules/preact/dist/preact.module.js"}],"context/image-modal.context.tsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ImageModalContext = void 0;
+
+var preact_1 = require("preact");
+
+exports.ImageModalContext = (0, preact_1.createContext)({
+  visibility: false,
+  src: null,
+  show: function show() {},
+  close: function close() {}
+});
+},{"preact":"../node_modules/preact/dist/preact.module.js"}],"context/index.ts":[function(require,module,exports) {
+"use strict";
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __exportStar = this && this.__exportStar || function (m, exports) {
+  for (var p in m) {
+    if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+  }
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__exportStar(require("./image-modal.context"), exports);
+},{"./image-modal.context":"context/image-modal.context.tsx"}],"components/cats.tsx":[function(require,module,exports) {
 "use strict";
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -750,6 +793,8 @@ exports.Cats = void 0;
 var jsx_runtime_1 = require("preact/jsx-runtime");
 
 var hooks_1 = require("preact/hooks");
+
+var context_1 = require("../context");
 
 var images = [{
   src: "assets/cats/cat_min_1.jpg"
@@ -776,6 +821,9 @@ var Cats = function Cats() {
       setTrigger = _ref2[1];
 
   var refList = new Array(images.length).fill(null);
+
+  var _ref3 = (0, hooks_1.useContext)(context_1.ImageModalContext),
+      show = _ref3.show;
 
   var triggerAnimate = function triggerAnimate(ref) {
     if (ref) {
@@ -838,7 +886,10 @@ var Cats = function Cats() {
           ref: function ref(currentEle) {
             return refList[index] = currentEle;
           },
-          className: classList.join(" ")
+          className: classList.join(" "),
+          onClick: function onClick() {
+            return show(image.src);
+          }
         }, index);
       })
     }), void 0)]
@@ -846,7 +897,7 @@ var Cats = function Cats() {
 };
 
 exports.Cats = Cats;
-},{"preact/jsx-runtime":"../node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js","preact/hooks":"../node_modules/preact/hooks/dist/hooks.module.js"}],"components/contact.tsx":[function(require,module,exports) {
+},{"preact/jsx-runtime":"../node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js","preact/hooks":"../node_modules/preact/hooks/dist/hooks.module.js","../context":"context/index.ts"}],"components/contact.tsx":[function(require,module,exports) {
 "use strict";
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -909,7 +960,7 @@ var Contact = function Contact() {
         }, void 0)
       }), void 0), (0, jsx_runtime_1.jsx)("a", Object.assign({
         className: "zx-contact-item",
-        href: "https://instagram/xiaoxiaoonline",
+        href: "https://instagram.com/xiaoxiaoonline",
         target: "_blank"
       }, {
         children: (0, jsx_runtime_1.jsx)("img", {
@@ -943,9 +994,16 @@ exports.Drawing = void 0;
 
 var jsx_runtime_1 = require("preact/jsx-runtime");
 
+var hooks_1 = require("preact/hooks");
+
+var context_1 = require("../context");
+
 var images = ["assets/sketches/sketch_min_1.jpg", "assets/sketches/sketch_min_2.jpg", "assets/sketches/sketch_min_3.jpg", "assets/sketches/sketch_min_4.jpg", "assets/sketches/sketch_min_5.jpg", "assets/sketches/sketch_min_6.jpg"];
 
 var Drawing = function Drawing() {
+  var _ref = (0, hooks_1.useContext)(context_1.ImageModalContext),
+      show = _ref.show;
+
   return (0, jsx_runtime_1.jsxs)("section", Object.assign({
     className: "zx-section zx-drawing",
     id: "zx_drawing"
@@ -974,6 +1032,9 @@ var Drawing = function Drawing() {
             style: {
               backgroundImage: "url(".concat(image, ")")
             },
+            onClick: function onClick() {
+              return show(image);
+            },
             className: "zx-carousel-item"
           }, index);
         })
@@ -983,7 +1044,7 @@ var Drawing = function Drawing() {
 };
 
 exports.Drawing = Drawing;
-},{"preact/jsx-runtime":"../node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js"}],"components/greeting.tsx":[function(require,module,exports) {
+},{"preact/jsx-runtime":"../node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js","preact/hooks":"../node_modules/preact/hooks/dist/hooks.module.js","../context":"context/index.ts"}],"components/greeting.tsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1037,6 +1098,8 @@ var jsx_runtime_1 = require("preact/jsx-runtime");
 
 var hooks_1 = require("preact/hooks");
 
+var context_1 = require("../context");
+
 var images = ["assets/photography/img_min_1.JPG", "assets/photography/img_min_2.JPG", "assets/photography/img_min_3.JPG", "assets/photography/img_min_4.JPG", "assets/photography/img_min_5.JPG", "assets/photography/img_min_6.JPG", "assets/photography/img_min_7.JPG", "assets/photography/img_min_8.JPG", "assets/photography/img_min_9.JPG", "assets/photography/img_min_10.JPG", "assets/photography/img_min_11.JPG", "assets/photography/img_min_12.JPG"];
 
 var Photograph = function Photograph() {
@@ -1046,6 +1109,9 @@ var Photograph = function Photograph() {
       setTrigger = _ref2[1];
 
   var refList = new Array(images.length).fill(null);
+
+  var _ref3 = (0, hooks_1.useContext)(context_1.ImageModalContext),
+      show = _ref3.show;
 
   var triggerAnimate = function triggerAnimate(ref) {
     if (ref) {
@@ -1107,6 +1173,9 @@ var Photograph = function Photograph() {
           style: {
             backgroundImage: "url(".concat(image, ")")
           },
+          onClick: function onClick() {
+            return show(image);
+          },
           className: "zx-photo"
         }, index);
       })
@@ -1115,7 +1184,7 @@ var Photograph = function Photograph() {
 };
 
 exports.Photograph = Photograph;
-},{"preact/jsx-runtime":"../node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js","preact/hooks":"../node_modules/preact/hooks/dist/hooks.module.js"}],"components/coding.tsx":[function(require,module,exports) {
+},{"preact/jsx-runtime":"../node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js","preact/hooks":"../node_modules/preact/hooks/dist/hooks.module.js","../context":"context/index.ts"}],"components/coding.tsx":[function(require,module,exports) {
 "use strict";
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -1435,7 +1504,82 @@ __exportStar(require("./greeting"), exports);
 __exportStar(require("./photograph"), exports);
 
 __exportStar(require("./coding"), exports);
-},{"./cats":"components/cats.tsx","./contact":"components/contact.tsx","./drawing":"components/drawing.tsx","./greeting":"components/greeting.tsx","./photograph":"components/photograph.tsx","./coding":"components/coding.tsx"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./cats":"components/cats.tsx","./contact":"components/contact.tsx","./drawing":"components/drawing.tsx","./greeting":"components/greeting.tsx","./photograph":"components/photograph.tsx","./coding":"components/coding.tsx"}],"hooks/use-image-modal.tsx":[function(require,module,exports) {
+"use strict";
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useImagreModal = void 0;
+
+var hooks_1 = require("preact/hooks");
+
+var useImagreModal = function useImagreModal() {
+  var _ref = (0, hooks_1.useState)(false),
+      _ref2 = _slicedToArray(_ref, 2),
+      visibility = _ref2[0],
+      setVisibility = _ref2[1];
+
+  var _ref3 = (0, hooks_1.useState)(null),
+      _ref4 = _slicedToArray(_ref3, 2),
+      src = _ref4[0],
+      setSrc = _ref4[1];
+
+  return {
+    visibility: visibility,
+    src: src,
+    show: function show(url) {
+      setSrc(url);
+      setVisibility(true);
+    },
+    close: function close() {
+      setSrc(null);
+      setVisibility(false);
+    }
+  };
+};
+
+exports.useImagreModal = useImagreModal;
+},{"preact/hooks":"../node_modules/preact/hooks/dist/hooks.module.js"}],"hooks/index.ts":[function(require,module,exports) {
+"use strict";
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __exportStar = this && this.__exportStar || function (m, exports) {
+  for (var p in m) {
+    if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+  }
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+__exportStar(require("./use-image-modal"), exports);
+},{"./use-image-modal":"hooks/use-image-modal.tsx"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -1535,6 +1679,10 @@ var hooks_1 = require("preact/hooks");
 
 var components_1 = require("./components");
 
+var hooks_2 = require("./hooks");
+
+var context_1 = require("./context");
+
 require("./styles/main.scss");
 
 var LOADING_TIME = 500;
@@ -1548,7 +1696,9 @@ var ZiXiaoPage = function ZiXiaoPage() {
   var _ref3 = (0, hooks_1.useState)(Math.ceil(Math.random() * 5)),
       _ref4 = _slicedToArray(_ref3, 2),
       bgIndex = _ref4[0],
-      setBgIndex = _ref4[1];
+      _ = _ref4[1];
+
+  var imageModal = (0, hooks_2.useImagreModal)();
 
   var initLoading = function initLoading(ref) {
     if (ref) {
@@ -1563,49 +1713,64 @@ var ZiXiaoPage = function ZiXiaoPage() {
 
   var classList = ["zx-dunamic-background"];
   classList.push("index-" + bgIndex);
-  return (0, jsx_runtime_1.jsxs)("div", Object.assign({
-    class: classList.join(" ")
+  return (0, jsx_runtime_1.jsx)(context_1.ImageModalContext.Provider, Object.assign({
+    value: imageModal
   }, {
-    children: [(0, jsx_runtime_1.jsx)("div", Object.assign({
-      class: "zx-body",
-      id: "zx_body"
+    children: (0, jsx_runtime_1.jsxs)("div", Object.assign({
+      class: classList.join(" ")
     }, {
-      children: (0, jsx_runtime_1.jsxs)("div", Object.assign({
-        class: "zx-container",
-        id: "zx_container"
+      children: [(0, jsx_runtime_1.jsx)("div", Object.assign({
+        class: "zx-body",
+        id: "zx_body"
       }, {
-        children: [(0, jsx_runtime_1.jsx)(components_1.Greeting, {}, void 0), (0, jsx_runtime_1.jsx)(components_1.Coding, {}, void 0), (0, jsx_runtime_1.jsx)(components_1.Photograph, {}, void 0), (0, jsx_runtime_1.jsx)(components_1.Cats, {}, void 0), (0, jsx_runtime_1.jsx)(components_1.Drawing, {}, void 0), (0, jsx_runtime_1.jsx)(components_1.Contact, {}, void 0), (0, jsx_runtime_1.jsxs)(preact_1.Fragment, {
-          children: [(0, jsx_runtime_1.jsx)("div", Object.assign({
-            class: "zx-logo"
-          }, {
-            children: (0, jsx_runtime_1.jsx)("div", Object.assign({
-              className: "zx-container"
+        children: (0, jsx_runtime_1.jsxs)("div", Object.assign({
+          class: "zx-container",
+          id: "zx_container"
+        }, {
+          children: [(0, jsx_runtime_1.jsx)(components_1.Greeting, {}, void 0), (0, jsx_runtime_1.jsx)(components_1.Coding, {}, void 0), (0, jsx_runtime_1.jsx)(components_1.Photograph, {}, void 0), (0, jsx_runtime_1.jsx)(components_1.Cats, {}, void 0), (0, jsx_runtime_1.jsx)(components_1.Drawing, {}, void 0), (0, jsx_runtime_1.jsx)(components_1.Contact, {}, void 0), (0, jsx_runtime_1.jsxs)(preact_1.Fragment, {
+            children: [(0, jsx_runtime_1.jsx)("div", Object.assign({
+              class: "zx-logo"
             }, {
-              children: "zixiao.website"
-            }), void 0)
-          }), void 0), (0, jsx_runtime_1.jsx)("div", {
-            class: "zx-footer-shadow"
+              children: (0, jsx_runtime_1.jsx)("div", Object.assign({
+                className: "zx-container"
+              }, {
+                children: "zixiao.website"
+              }), void 0)
+            }), void 0), (0, jsx_runtime_1.jsx)("div", {
+              class: "zx-footer-shadow"
+            }, void 0)]
           }, void 0)]
-        }, void 0)]
-      }), void 0)
-    }), void 0), loading && (0, jsx_runtime_1.jsx)("div", Object.assign({
-      className: "zx-loading",
-      ref: function ref(currentRef) {
-        return initLoading(currentRef);
-      }
-    }, {
-      children: (0, jsx_runtime_1.jsx)("div", Object.assign({
-        className: "zx-loading-spinner"
+        }), void 0)
+      }), void 0), imageModal.visibility && (0, jsx_runtime_1.jsx)("div", Object.assign({
+        className: "zx-modal-container",
+        onClick: function onClick() {
+          return imageModal.close();
+        }
       }, {
-        children: "\xA0"
-      }), void 0)
-    }), void 0)]
-  }), bgIndex);
+        children: (0, jsx_runtime_1.jsx)("img", {
+          src: imageModal.src,
+          alt: "cat",
+          className: "zx-modal"
+        }, void 0)
+      }), void 0), loading && (0, jsx_runtime_1.jsx)("div", Object.assign({
+        className: "zx-loading",
+        ref: function ref(currentRef) {
+          return initLoading(currentRef);
+        }
+      }, {
+        children: (0, jsx_runtime_1.jsx)("div", Object.assign({
+          className: "zx-loading-spinner"
+        }, {
+          children: "\xA0"
+        }), void 0)
+      }), void 0)]
+    }), bgIndex)
+  }), void 0);
 };
 
 exports.ZiXiaoPage = ZiXiaoPage;
 (0, preact_1.render)((0, jsx_runtime_1.jsx)(exports.ZiXiaoPage, {}, void 0), document.getElementById("root"));
-},{"preact/jsx-runtime":"../node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js","preact":"../node_modules/preact/dist/preact.module.js","preact/hooks":"../node_modules/preact/hooks/dist/hooks.module.js","./components":"components/index.ts","./styles/main.scss":"styles/main.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"preact/jsx-runtime":"../node_modules/preact/jsx-runtime/dist/jsxRuntime.module.js","preact":"../node_modules/preact/dist/preact.module.js","preact/hooks":"../node_modules/preact/hooks/dist/hooks.module.js","./components":"components/index.ts","./hooks":"hooks/index.ts","./context":"context/index.ts","./styles/main.scss":"styles/main.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
